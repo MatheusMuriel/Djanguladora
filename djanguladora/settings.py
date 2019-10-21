@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'calculo',
     'corsheaders',
-    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -131,16 +130,3 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_URL = '/public/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'public')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'frontend', 'dist'),
-)
-WEBPACK_LOADER = {
-    'DEFAULT': {
-        'CACHE': not DEBUG,
-        'BUNDLE_DIR_NAME': '',
-        'STATS_FILE': os.path.join(BASE_DIR, 'frontend', 'webpack-stats.json'),
-        'POLL_INTERVAL': 0.1,
-        'TIMEOUT': None,
-        'IGNORE': ['.+\.hot-update.js', '.+\.map']
-    }
-}
