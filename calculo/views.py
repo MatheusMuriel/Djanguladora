@@ -12,11 +12,9 @@ from django.views.decorators.cache import never_cache
 from django.contrib.staticfiles.templatetags.staticfiles import static
 import json
 
-index_view = never_cache(TemplateView.as_view(template_name='index.html'))
-
 # ---- Metodo da Bisseção ----
 @csrf_exempt
-def calcular(request):
+def bissecao(request):
 	if request.method == 'POST':
 		dados = str(request.body)
 		v = spliter_request(dados)
@@ -32,10 +30,6 @@ def executarCalculo(x5, x4, x3, x2, x1, x, epsilon):
 	calc = factor(x5, x4, x3, x2, x1, x, epsilon)
 	return calc.calcular()
 
-"""
-Cada intervalor começa e termina com $$$
-Seguido por a::b=>
-"""
 def serializadorDeResposta(lista_resposta):
 	resposta = ""
 
@@ -55,8 +49,6 @@ def serializadorDeResposta(lista_resposta):
 			resposta += "]"
 
 		print(resposta)
-
-	print(resposta)
 	
 	return(resposta)
 
