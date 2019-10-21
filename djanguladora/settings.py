@@ -58,7 +58,7 @@ ROOT_URLCONF = 'djanguladora.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'public')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,5 +128,5 @@ CORS_ORIGIN_ALLOW_ALL = True
 #STATIC_ROOT = os.path.join(BASE_DIR, 'frontend')
 # Fim Old
 
-STATIC_URL = '/public/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'public')
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
