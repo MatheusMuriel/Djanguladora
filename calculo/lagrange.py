@@ -1,10 +1,7 @@
-
 class Lagrange():
-    
-    def calcular():
-        pass
+  
+  def calcular():
+    pass
 
-def factory_lagrange(dictMatriz):
+def factory_lagrange(dictValores):
   pass
-
-inf = False

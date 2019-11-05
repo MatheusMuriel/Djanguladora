@@ -77,8 +77,8 @@ def spliter_request_lagrange(dados):
 
 	return dictValores
 
-def executar_calculo_lagrange():
-	metodo = factory_lagrange()
+def executar_calculo_lagrange(dictValores):
+	metodo = factory_lagrange(dictValores)
 	return metodo.calcular()
 
 def serializador_resposta_lagrange(lista_resposta):
