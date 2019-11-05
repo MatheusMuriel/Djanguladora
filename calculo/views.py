@@ -76,6 +76,7 @@ def spliter_request_lagrange(dados):
 			valor = float(arrItem[1])
 			dictValores[chave] = valor
 
+	print(dictValores)
 	return dictValores
 
 def executar_calculo_lagrange(dictValores):

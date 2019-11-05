@@ -41,5 +41,5 @@ def factory_lagrange(dictValores):
   xi = np.array(valores_X)
   fxi = np.array(valores_F)
   n  = len(xi)
-
+  print((xi, fxi, x, n))
   return Lagrange(xi, fxi, x, n)
