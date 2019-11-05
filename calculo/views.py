@@ -55,6 +55,7 @@ def serializadorDeResposta(lista_resposta):
 
 
 # ---- Forma de Lagrange ----
+# curl 'http://localhost:8000/lagrange/' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3' --compressed -H 'Referer: http://localhost:8080/' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://localhost:8080' -H 'Connection: keep-alive' --data '{"X1":1,"X2":2,"X3":3,"X4":4,"X5":5,"F1":11,"F2":22,"F3":33,"F4":44,"F5":55,"X":999}'
 @csrf_exempt
 def lagrange(request):
 	if request.method == 'POST':
@@ -65,7 +66,16 @@ def lagrange(request):
 		return HttpResponse(sc)
 
 def spliter_request_lagrange(dados):
-	pass
+	str_limpa = dados[2:-1]
+	arrDados = re.sub(r"({|}|\")","", str_limpa).split(",")
+	dictValores = {}
+	for item in arrDados:
+		arrItem = item.split(":")
+		chave = arrItem[0]
+		valor = float(arrItem[1])
+		dictValores[chave] = valor
+
+	return dictValores
 
 def executar_calculo_lagrange():
 	metodo = factory_lagrange()
@@ -96,7 +106,6 @@ def spliter_request_gauss(dados):
 		chave = arrItem[0]
 		valor = float(arrItem[1])
 		dictMaptriz[chave] = valor
-		
 
 	return dictMaptriz
 
