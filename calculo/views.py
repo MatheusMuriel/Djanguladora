@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import re
 from .calculadora import factor
 from .gauss import factory
+from .lagrange import factory_lagrange
 from django.shortcuts import render
 from django.template import loader
 from django.views.generic import TemplateView
@@ -51,6 +52,27 @@ def serializadorDeResposta(lista_resposta):
 		print(resposta)
 	
 	return(resposta)
+
+
+# ---- Forma de Lagrange ----
+@csrf_exempt
+def lagrange(request):
+	if request.method == 'POST':
+		dados = str(request.body)
+		v = spliter_request_lagrange(dados)
+		c = executar_calculo_lagrange()
+		sc = serializador_resposta_lagrange(c)
+		return HttpResponse(sc)
+
+def spliter_request_lagrange(dados):
+	pass
+
+def executar_calculo_lagrange():
+	metodo = factory_lagrange()
+	return metodo.calcular()
+
+def serializador_resposta_lagrange(lista_resposta):
+	pass
 
 
 # ---- Metodo da Gauss ----
