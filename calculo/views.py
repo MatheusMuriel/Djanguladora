@@ -61,9 +61,9 @@ def lagrange(request):
 	if request.method == 'POST':
 		dados = str(request.body)
 		v = spliter_request_lagrange(dados)
-		c = executar_calculo_lagrange()
-		sc = serializador_resposta_lagrange(c)
-		return HttpResponse(sc)
+		c = executar_calculo_lagrange(v)
+		#sc = serializador_resposta_lagrange(c)
+		return HttpResponse(c)
 
 def spliter_request_lagrange(dados):
 	str_limpa = dados[2:-1]
@@ -72,17 +72,15 @@ def spliter_request_lagrange(dados):
 	for item in arrDados:
 		arrItem = item.split(":")
 		chave = arrItem[0]
-		valor = float(arrItem[1])
-		dictValores[chave] = valor
+		if not "null" in arrItem[1]:
+			valor = float(arrItem[1])
+			dictValores[chave] = valor
 
 	return dictValores
 
 def executar_calculo_lagrange(dictValores):
 	metodo = factory_lagrange(dictValores)
 	return metodo.calcular()
-
-def serializador_resposta_lagrange(lista_resposta):
-	pass
 
 
 # ---- Metodo da Gauss ----
