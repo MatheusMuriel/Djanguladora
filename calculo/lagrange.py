@@ -1,6 +1,3 @@
-import math
-import numpy as np
-
 class Lagrange():
 
   def __init__(self, xi, fxi, x, n):
@@ -38,8 +35,8 @@ def factory_lagrange(dictValores):
       valores_X.append(v)
   
   x = px
-  xi = np.array(valores_X)
-  fxi = np.array(valores_F)
+  xi = valores_X
+  fxi = valores_F
   n  = len(xi)
   print((xi, fxi, x, n))
   return Lagrange(xi, fxi, x, n)
