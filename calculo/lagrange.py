@@ -26,13 +26,16 @@ def factory_lagrange(dictValores):
   valores_F = []
   px = 0
 
-  for k,v in dictValores.items():
-    if "F" in str(k):
-      valores_F.append(v)
-    elif "PX" in str(k):
-      px = v
-    elif "X" in str(k):
-      valores_X.append(v)
+  n = (len(dictValores)-1) // 2
+
+  for i in range (1, n+1):
+    chaveX = 'X' + str(i)
+    chaveF = 'F' + str(i)
+
+    valores_X.append(dictValores[chaveX])
+    valores_F.append(dictValores[chaveF])
+
+  px = dictValores['PX']
   
   x = px
   xi = valores_X
