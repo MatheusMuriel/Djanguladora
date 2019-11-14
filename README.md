@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center"></h4>API feita em <a href="https://www.djangoproject.com/" target="_blank">Django</a> para a resolução de problemas da disciplina de Calculo Numérico </h4>
+<h4 align="center">API feita em <a href="https://www.djangoproject.com/" target="_blank">Django</a> para a resolução de problemas da disciplina de Calculo Numérico</h4>
 
 
 <h5 align="center">Hospedado em: </br><a href="http://matheusmuriel.pythonanywhere.com">MatheusMuriel.pythonanywhere.com/Djanguladora</a></h5>
