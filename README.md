@@ -27,10 +27,9 @@
 
 ## Contexto
 
-Trabalho da matéria de Calculo Numérico do curso de Ciência da Computação - UniFil
-Professora: Tania Camila Kochmanscky Goulart
-
-Calculo feito utilizando o método da [Bisseção](https://pt.wikipedia.org/wiki/M%C3%A9todo_da_bisse%C3%A7%C3%A3o).
+Trabalho da disciplina de Calculo Numérico  
+Professora: Tania Camila Kochmanscky Goulart  
+Ciência da Computação - UniFil
 
 ## Como executar
 
@@ -71,4 +70,4 @@ Requisição [REST](https://pt.wikipedia.org/wiki/REST)
 ## Licença
 [GNU General Public License v3.0](LICENSE)
 
- [Matheus Muriel](https://github.com/MatheusMuriel/) e [Guilherme Manhani](https://github.com/guilhermemanhani)
+ [Matheus Muriel](https://github.com/MatheusMuriel/), [Guilherme Manhani](https://github.com/guilhermemanhani) e [Vitor Nakano](https://github.com/VitorNakano)
