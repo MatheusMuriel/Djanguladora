@@ -1,16 +1,19 @@
-from rest_framework import generics
-from rest_framework.decorators import api_view
-from django.http.response import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-import re
-from .calculadora import factor
-from .gauss import factory
-from .lagrange import factory_lagrange
 from django.shortcuts import render
 from django.template import loader
 from django.views.generic import TemplateView
 from django.views.decorators.cache import never_cache
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.http.response import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import generics
+from rest_framework.decorators import api_view
+
+from .calculadora import factor
+from .gauss import factory
+from .lagrange import factory_lagrange
+from .newton import factory_newton
+
+import re
 import json
 
 # ---- Metodo da Bisseção ----
@@ -52,6 +55,20 @@ def serializadorDeResposta(lista_resposta):
 		print(resposta)
 	
 	return(resposta)
+
+# ---- Forma de Newton ----
+# curl 'http://localhost:8000/newton/' -H 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0' -H 'Accept: application/json, text/plain, */*' -H 'Accept-Language: pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3' --compressed -H 'Referer: http://localhost:8080/' -H 'Content-Type: application/x-www-form-urlencoded' -H 'Origin: http://localhost:8080' -H 'Connection: keep-alive' --data '{"X1":1,"X2":2,"X3":3,"X4":4,"X5":5,"F1":11,"F2":22,"F3":33,"F4":44,"F5":55,"X":999}'
+@csrf_exempt
+def newton(request):
+	if request.method == 'POST':
+		dados = str(request.body)
+		v = spliter_request_lagrange(dados) #Usa o mesmo spliter de Lagrange
+		c = executar_calculo_newton(v)
+		return HttpResponse(c)
+
+def executar_calculo_newton(dictValores):
+	metodo = factory_newton(dictValores)
+	return metodo.calcular()
 
 
 # ---- Forma de Lagrange ----
