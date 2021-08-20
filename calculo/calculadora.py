@@ -86,7 +86,7 @@ class CalculadoraFuncao():
         resultado = self.calcularIsolamento(intervalo)
         calc_intervalo = self.calcularIntervalo(resultado, intervalo)
         self.filtraParaCalcular(self.calc_intervalo_real_num, calc_intervalo)
-        print(self.lista_intervalos)
+
         return(self.lista_intervalos)
 
 """
